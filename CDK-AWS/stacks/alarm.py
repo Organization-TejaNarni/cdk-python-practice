@@ -10,6 +10,13 @@ from aws_cdk import (
 
 # data_protection_policy: Any
 
+
+class AlarmStack(core.Stack):
+
+    def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
+        super().__init__(scope, id, **kwargs)
+
+
 topic = sns.Topic(self, "Topic",
     display_name="Customer subscription topic"
 )

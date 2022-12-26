@@ -12,7 +12,8 @@ from aws_cdk import core
 # from stacks.apigw_stack import APIStack
 # from stacks.lambda_stack import LambdaStack
 # from stacks.codepipeline_backend import CodePipelineBackendStack
-from stacks.notifications import NotificationStack
+#from stacks.notifications import NotificationStack
+from stacks.alarm import AlarmStack
 # from stacks.cdn_stack import CDNStack
 # from stacks.codepipeline_frontend import CodePipelineFrontendStack
 # from stacks.waf_stack import WafStack
@@ -34,7 +35,9 @@ app = core.App()
 # apigw_stack = APIStack(app,'apigw')
 # lambda_stack = LambdaStack(app,'lambda')
 # cp_backend = CodePipelineBackendStack(app,'cp-backend', artifactbucket=core.Fn.import_value('build-artifacts-bucket') )
-notification = NotificationStack(app,'notification')
+#notification = NotificationStack(app,'notification')
+alarm = AlarmStack(app,'alarm')
+
 # cp_frontend = CodePipelineFrontendStack(app,'cp-frontend', webhostingbucket=core.Fn.import_value('frontend-bucket'))
 # waf_stack = WafStack(app,'waf')
 # acm_stack = ACMStack(app, 'acm')
