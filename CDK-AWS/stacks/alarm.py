@@ -18,9 +18,10 @@ class AlarmStack(core.Stack):
 
 
 topic = sns.Topic(self, "Topic",
-    display_name="Customer subscription topic"
+    content_based_deduplication=True,
+    display_name="Customer subscription topic",
+    fifo=True,
+    topic_name="customerTopic"
 )
 
-my_topic = sns.Topic(self, "MyTopic")
-
-my_topic.add_subscription(subscriptions.UrlSubscription("https://foobar.com/"))
+#my_topic.add_subscription(subscriptions.UrlSubscription("https://foobar.com/"))
