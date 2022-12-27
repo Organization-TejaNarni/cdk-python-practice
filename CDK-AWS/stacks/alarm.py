@@ -32,13 +32,18 @@ class AlarmStack(core.Stack):
 
 
 ########Creating your own metric#######
-        metric = cloudwatch.Metric(self, "Metric" ,
-             namespace="MyNamespace",
-             metric_name="MyMetric",
-             dimensions=dict(MyDimension="MyDimensionValue")
-         )
-
+        metric = cloudwatch.Metric(
+            namespace="MyNamespace",
+            metric_name="MyMetric",
+            dimensions=dict(MyDimension="MyDimensionValue")
+        )
 
 ###### Creating the alarm ####
+        alarm = cloudwatch.Alarm(self, "Alarm",
+            metric=metric,
+            threshold=100,
+            evaluation_periods=3,
+            datapoints_to_alarm=2
+        )
 
  
