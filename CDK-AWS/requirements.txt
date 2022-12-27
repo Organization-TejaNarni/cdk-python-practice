@@ -17,3 +17,4 @@ aws-cdk.aws-route53
 aws-cdk.aws-route53-targets
 aws-cdk.aws-cloudtrail
 aws_cdk.aws_cloudwatch_actions
+aws_cdk.aws_ecs 

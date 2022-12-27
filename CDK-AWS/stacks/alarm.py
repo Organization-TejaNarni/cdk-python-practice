@@ -6,6 +6,7 @@ from aws_cdk import (
     aws_sns_subscriptions as subscriptions,
     aws_cloudwatch as cloudwatch,
     aws_cloudwatch_actions as cw_actions,
+    aws_ecs as ecs,
     core,
 )
 
@@ -29,7 +30,7 @@ class AlarmStack(core.Stack):
 ######### cloudwatch Alarm ##############33
 
 #####  Using an existing metric #####
-        metric = "ApproximateNumberOfMessagesVisible"
+        metric = ecs.metric("FargatePageError")
 
 
 ########Creating your own metric#######
