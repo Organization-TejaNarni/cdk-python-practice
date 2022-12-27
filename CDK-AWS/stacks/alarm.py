@@ -28,25 +28,17 @@ class AlarmStack(core.Stack):
 ######### cloudwatch Alarm ##############33
 
 #####  Using an existing metric #####
-        # metric = "ApproximateNumberOfMessagesVisible"
+        #metric = "ApproximateNumberOfMessagesVisible"
 
 
-#########Creating your own metric#######
-        #  metric = cloudwatch.Metric(self, "Metric"
-        #      namespace="MyNamespace",
-        #      metric_name="MyMetric",
-        #      dimensions=dict(MyDimension="MyDimensionValue")
-        #  )
+########Creating your own metric#######
+        metric = cloudwatch.Metric(self, "Metric" ,
+             namespace="MyNamespace",
+             metric_name="MyMetric",
+             dimensions=dict(MyDimension="MyDimensionValue")
+         )
 
 
 ###### Creating the alarm ####
 
-alarm = cloudwatch.Alarm(Self, "Errors",
-    comparison_operator=cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
-    threshold=1,
-    evaluation_periods=1,
-    namespace="AWS/ECS",
-    metric="MemoryUtilization"
-)
-
-        
+ 
