@@ -4,7 +4,7 @@ from aws_cdk import (
     aws_events_targets as targets,
     aws_sns as sns,
     aws_sns_subscriptions as subscriptions,
-    aws_cdk.aws_cloudwatch as cloudwatch
+    aws_cloudwatch as cloudwatch
     core,
 )
 
