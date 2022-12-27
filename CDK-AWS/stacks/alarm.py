@@ -3,7 +3,7 @@ from aws_cdk import (
     aws_events as events,
     aws_events_targets as targets,
     aws_sns as sns,
-    aws_sns_subscriptions as subs,
+    aws_sns_subscriptions as subscriptions,
     core,
 )
 
@@ -19,5 +19,6 @@ class AlarmStack(core.Stack):
             fifo=True,
             topic_name="customerTopic"
             )
+    topic.add_subscription(subscriptions.UrlSubscription("https://foobar.com/"))
 
         
