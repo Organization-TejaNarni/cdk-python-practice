@@ -5,6 +5,7 @@ from aws_cdk import (
     aws_sns as sns,
     aws_sns_subscriptions as subscriptions,
     aws_cloudwatch as cloudwatch,
+    aws_cloudwatch_actions as cw_actions,
     core,
 )
 
@@ -45,5 +46,7 @@ class AlarmStack(core.Stack):
             evaluation_periods=3,
             datapoints_to_alarm=2
         )
+######  alarm action ####
 
+        alarm.add_alarm_action(cw_actions.SnsAction(topic))
  
