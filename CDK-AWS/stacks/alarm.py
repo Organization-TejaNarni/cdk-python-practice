@@ -1,3 +1,5 @@
+from msilib.schema import SelfReg
+from typing import Self
 from aws_cdk import (
     aws_lambda as lb,
     aws_events as events,
@@ -28,25 +30,25 @@ class AlarmStack(core.Stack):
 ######### cloudwatch Alarm ##############33
 
 #####  Using an existing metric #####
-        metric = "ApproximateNumberOfMessagesVisible"
+        # metric = "ApproximateNumberOfMessagesVisible"
 
 
 #########Creating your own metric#######
-# metric = cloudwatch.Metric(
-#     namespace="MyNamespace",
-#     metric_name="MyMetric",
-#     dimensions=dict(MyDimension="MyDimensionValue")
-# )
+        #  metric = cloudwatch.Metric(self, "Metric"
+        #      namespace="MyNamespace",
+        #      metric_name="MyMetric",
+        #      dimensions=dict(MyDimension="MyDimensionValue")
+        #  )
 
 
 ###### Creating the alarm ####
 
-        alarm = cloudwatch.Alarm(self, "Alarm",
-            metric=metric,
-            threshold=100,
-            evaluation_periods=3,
-            datapoints_to_alarm=2
-        )
-
+alarm = cloudwatch.Alarm(Self, "Errors",
+    comparison_operator=cloudwatch.ComparisonOperator.GREATER_THAN_THRESHOLD,
+    threshold=1,
+    evaluation_periods=1,
+    namespace="AWS/ECS",
+    metric="MemoryUtilization"
+)
 
         
