@@ -1,7 +1,7 @@
 from aws_cdk import (
-    aws_lambda as lb,
-    aws_events as events,
-    aws_events_targets as targets,
+    # aws_lambda as lb,
+    # aws_events as events,
+    # aws_events_targets as targets,
     aws_sns as sns,
     aws_sns_subscriptions as subscriptions,
     aws_cloudwatch as cloudwatch,
@@ -30,7 +30,7 @@ class AlarmStack(core.Stack):
 ######### cloudwatch Alarm ##############33
 
 #####  Using an existing metric #####
-        metric = ecs.metric("FargatePageError")
+        # metric = ecs.metric("FargatePageError")
 
 
 ########Creating your own metric#######
@@ -40,14 +40,24 @@ class AlarmStack(core.Stack):
         #     dimensions=dict(MyDimension="MyDimensionValue")
         # )
 
+
+#         metric = cloudwatch.Metric(
+#     namespace="AWS/Route53",
+#     metric_name="DNSQueries",
+#     dimensions_map={
+#         "HostedZoneId": hosted_zone.hosted_zone_id
+#     }
+# )
+#https://pypi.org/project/aws-cdk.aws-cloudwatch/
+
 ###### Creating the alarm ####
-        alarm = cloudwatch.Alarm(self, "Alarm",
-            metric=metric,
-            threshold=100,
-            evaluation_periods=3,
-            datapoints_to_alarm=2
-        )
+        # alarm = cloudwatch.Alarm(self, "Alarm",
+        #     metric=metric,
+        #     threshold=100,
+        #     evaluation_periods=3,
+        #     datapoints_to_alarm=2
+        # )
 ######  alarm action ####
 
-        alarm.add_alarm_action(cw_actions.SnsAction(topic))
+        # alarm.add_alarm_action(cw_actions.SnsAction(topic))
  
