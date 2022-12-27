@@ -1,5 +1,3 @@
-from msilib.schema import SelfReg
-from typing import Self
 from aws_cdk import (
     aws_lambda as lb,
     aws_events as events,
